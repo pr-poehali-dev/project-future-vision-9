@@ -19,7 +19,7 @@ export function Hero() {
           <i className="font-light">без лишних</i> хлопот
         </h1>
         <p className="font-mono text-sm sm:text-base text-foreground/60 text-balance mt-8 max-w-[440px] mx-auto">
-          Выкупаем и доставляем товары с Taobao, 1688, Pinduoduo — быстро, надёжно и по выгодной цене
+          Выкупаем и доставляем товары с Poizon, Pinduoduo, Taobao, 1688 — быстро, надёжно и по выгодной цене
         </p>
 
         <a className="contents max-sm:hidden" href="#contact">
