@@ -4,6 +4,7 @@ import { HowItWorks } from "@/components/HowItWorks";
 import { Platforms } from "@/components/Platforms";
 import { Pricing } from "@/components/Pricing";
 import { OrderForm } from "@/components/OrderForm";
+import { Footer } from "@/components/Footer";
 
 export default function Index() {
   const [selectedTariff, setSelectedTariff] = useState("");
@@ -22,6 +23,7 @@ export default function Index() {
       <Platforms />
       <Pricing onSelectPlan={handleSelectPlan} />
       <OrderForm selectedTariff={selectedTariff} />
+      <Footer />
     </>
   );
 }
