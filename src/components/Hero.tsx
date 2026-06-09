@@ -22,7 +22,7 @@ export function Hero() {
           Выкупаем и доставляем товары с Poizon, Pinduoduo, Taobao, 1688 — быстро, надёжно и по выгодной цене
         </p>
 
-        <a className="contents max-sm:hidden" href="#contact">
+        <a className="contents max-sm:hidden" href="https://t.me/adda_assa" target="_blank" rel="noopener noreferrer">
           <Button
             className="mt-14"
             onMouseEnter={() => setHovering(true)}
@@ -31,7 +31,7 @@ export function Hero() {
             [Оформить заказ]
           </Button>
         </a>
-        <a className="contents sm:hidden" href="#contact">
+        <a className="contents sm:hidden" href="https://t.me/adda_assa" target="_blank" rel="noopener noreferrer">
           <Button
             size="sm"
             className="mt-14"
