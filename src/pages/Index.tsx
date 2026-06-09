@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Hero } from "@/components/Hero";
+import { HowItWorks } from "@/components/HowItWorks";
 import { Pricing } from "@/components/Pricing";
 import { OrderForm } from "@/components/OrderForm";
 
@@ -16,6 +17,7 @@ export default function Index() {
   return (
     <>
       <Hero />
+      <HowItWorks />
       <Pricing onSelectPlan={handleSelectPlan} />
       <OrderForm selectedTariff={selectedTariff} />
     </>
