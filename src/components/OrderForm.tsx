@@ -114,10 +114,11 @@ export function OrderForm({ selectedTariff }: OrderFormProps) {
                   onChange={handleChange}
                   className={inputClass}
                 >
-                  <option value="">Выберите тариф</option>
-                  <option value="Старт">Старт — 5%</option>
-                  <option value="Бизнес">Бизнес — 3%</option>
-                  <option value="PRO">PRO — 2%</option>
+                  <option value="">Не знаю / уточним позже</option>
+                  <option value="До 3 000 ₽ — 10%">До 3 000 ₽ — 10%</option>
+                  <option value="3 000–15 000 ₽ — 8%">3 000–15 000 ₽ — 8%</option>
+                  <option value="15 000–50 000 ₽ — 5%">15 000–50 000 ₽ — 5%</option>
+                  <option value="От 50 000 ₽ — 3%">От 50 000 ₽ — 3%</option>
                 </select>
               </div>
 

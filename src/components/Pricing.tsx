@@ -1,52 +1,26 @@
-interface Plan {
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
+interface Tier {
+  range: string;
+  percent: string;
   highlight?: boolean;
-  badge?: string;
 }
 
-const plans: Plan[] = [
+const tiers: Tier[] = [
   {
-    name: "Старт",
-    price: "5%",
-    description: "от суммы заказа",
-    features: [
-      "Выкуп с Taobao и 1688",
-      "Проверка товара перед отправкой",
-      "Фото товара по запросу",
-      "Доставка до склада в России",
-      "Поддержка в Telegram",
-    ],
+    range: "До 3 000 ₽",
+    percent: "10%",
   },
   {
-    name: "Бизнес",
-    price: "3%",
-    description: "от суммы заказа",
-    badge: "Популярный",
+    range: "3 000 — 15 000 ₽",
+    percent: "8%",
+  },
+  {
+    range: "15 000 — 50 000 ₽",
+    percent: "5%",
     highlight: true,
-    features: [
-      "Выкуп с любых площадок Китая",
-      "Детальная проверка и фото/видео",
-      "Перемаркировка и упаковка",
-      "Консолидация нескольких заказов",
-      "Приоритетная поддержка 24/7",
-      "Персональный менеджер",
-    ],
   },
   {
-    name: "PRO",
-    price: "2%",
-    description: "от суммы заказа · от 500 000 ₽",
-    features: [
-      "Всё из тарифа Бизнес",
-      "Переговоры с поставщиком",
-      "Оптовые закупки и скидки",
-      "Таможенное оформление",
-      "Выделенный аккаунт-менеджер",
-      "Индивидуальные условия",
-    ],
+    range: "От 50 000 ₽",
+    percent: "3%",
   },
 ];
 
@@ -60,67 +34,47 @@ export function Pricing({ onSelectPlan }: PricingProps) {
       <div className="container">
         <div className="text-center mb-16">
           <p className="font-mono text-xs uppercase tracking-widest text-foreground/40 mb-4">
-            Тарифы
+            Стоимость
           </p>
           <h2 className="text-4xl md:text-5xl font-sentient">
             Простые и <i className="font-light">прозрачные</i> цены
           </h2>
           <p className="font-mono text-sm text-foreground/50 mt-4 max-w-md mx-auto">
-            Никаких скрытых платежей — платите только процент от суммы выкупа
+            Комиссия зависит от суммы заказа — чем больше, тем выгоднее
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {plans.map((plan) => (
+        <div className="max-w-2xl mx-auto space-y-3">
+          {tiers.map((tier) => (
             <div
-              key={plan.name}
-              className={`relative rounded-2xl border p-8 flex flex-col transition-all duration-300 ${
-                plan.highlight
-                  ? "border-primary/60 bg-white/5 shadow-glow shadow-primary/10"
+              key={tier.range}
+              className={`flex items-center justify-between rounded-xl border px-6 py-5 transition-all duration-300 ${
+                tier.highlight
+                  ? "border-primary/50 bg-primary/5"
                   : "border-white/10 bg-white/[0.02] hover:border-white/20"
               }`}
             >
-              {plan.badge && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                  <span className="bg-primary text-black text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full">
-                    {plan.badge}
-                  </span>
-                </div>
-              )}
-
-              <div className="mb-8">
-                <p className="font-mono text-xs uppercase tracking-widest text-foreground/40 mb-3">
-                  {plan.name}
-                </p>
-                <div className="flex items-baseline gap-2">
-                  <span className="text-5xl font-sentient">{plan.price}</span>
-                </div>
-                <p className="font-mono text-xs text-foreground/40 mt-1">
-                  {plan.description}
-                </p>
-              </div>
-
-              <ul className="space-y-3 flex-1 mb-8">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 font-mono text-sm text-foreground/70">
-                    <span className="text-primary mt-0.5 shrink-0">—</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-
-              <button
-                onClick={() => onSelectPlan(plan.name)}
-                className={`w-full py-3 rounded-lg font-mono text-sm uppercase tracking-widest transition-all duration-200 ${
-                  plan.highlight
-                    ? "bg-primary text-black hover:bg-primary/80"
-                    : "border border-white/20 text-foreground/70 hover:border-white/50 hover:text-foreground"
+              <span className="font-mono text-sm text-foreground/70">
+                {tier.range}
+              </span>
+              <span
+                className={`font-sentient text-3xl ${
+                  tier.highlight ? "text-primary" : "text-foreground"
                 }`}
               >
-                [Выбрать тариф]
-              </button>
+                {tier.percent}
+              </span>
             </div>
           ))}
+        </div>
+
+        <div className="text-center mt-10">
+          <button
+            onClick={() => onSelectPlan("")}
+            className="font-mono text-sm uppercase tracking-widest border border-white/20 text-foreground/70 hover:border-primary/50 hover:text-foreground px-8 py-3 rounded-lg transition-all duration-200"
+          >
+            [Оформить заказ]
+          </button>
         </div>
       </div>
     </section>
