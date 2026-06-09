@@ -22,6 +22,15 @@ export function Footer() {
                 <span className="text-primary">—</span>
                 aslanamojan@icloud.com
               </a>
+              <a
+                href="https://t.me/adda_assa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 font-mono text-sm text-foreground/70 hover:text-foreground transition-colors duration-200"
+              >
+                <span className="text-primary">—</span>
+                @adda_assa
+              </a>
             </div>
           </div>
 
